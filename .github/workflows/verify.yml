@@ -1,0 +1,17 @@
+name: Verify
+on: [push]
+jobs:
+  commit-hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify pushed commit messages
+        run: |
+          python3 - <<'CHECK'
+          import re, subprocess
+          messages = subprocess.check_output(['git', 'log', '--format=%B'], text=True)
+          assert not re.search(r'(?im)^co-authored-by:.*<(?:noreply|codex)@openai\.com>', messages)
+          print('pushed commit messages contain no OpenAI co-author trailer')
+          CHECK
