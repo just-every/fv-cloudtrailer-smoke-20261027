@@ -1,0 +1,2 @@
+Proof home: /home/agent
+Disposable cloud push credential recovery proof: publish this commit with the fleet guard, then intentionally invalidate the task-local GitHub credential and let the guard refresh the launcher bundle and retry.
