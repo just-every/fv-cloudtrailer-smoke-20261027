@@ -1,0 +1,2 @@
+Proof home: /home/agent/rer-consolidation/work/zz-fv-cloudpush-justevery_james
+Exercise the shared cloud push guard: publish with the decrypted bundle, then retry with an intentionally invalid task-local credential so launcher refresh can restore authentication.
